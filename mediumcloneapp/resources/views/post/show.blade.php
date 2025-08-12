@@ -10,12 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-8">
                 <h1 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{{$post->title}}</h1>
                 <div class="flex gap-4">
-                    @if($post->user->image)
-                        <img src="{{$post->user->imageUrl()}}" alt="{{$post->user->name}}" class="w-12 h-12 rounded-full">
-                    @else
-                        <img src="{{$post->user->imageUrl()}}" alt="{{$post->user->name}}" class="w-12 h-12 rounded-full">
-                    @endif
-
+                    <x-user-avatar :user="$post->user"></x-user-avatar>
                     <div>
                         <div class="flex gap-2 text-gray-500">
                             <a href="{{route('profile.show', $post->user)}}" class="hover:underline">{{$post->user->name}}</a href="{{route('profile.show', $post->user)}}">
